@@ -1,24 +1,15 @@
-import java.util.ArrayList;
-
 public class Main {
 
     public static void main(String[] args) {
         for(int i=0; i<=10; i++){
-            System.out.println(OptimizedFibonacci(i));
+            System.out.println(OptimizedFibonacci(i, 1, 0));
         }
-
     }
 
-    public static int OptimizedFibonacci(int n){
-        if(n==1){
-            return 1;
-        } else{
-            ArrayList<Integer> fibos = new ArrayList<>();
-            fibos.add(0); fibos.add(1);
-            for(int i = 2; i<=n;i++){
-                fibos.add(fibos.get(i-1)+fibos.get(i-2)); //We add the fibos we're getting, scaling till the number required.
-            }
-            return fibos.get(n);
+    public static int OptimizedFibonacci(int n, int valor, int anterior){
+        if(n==0){
+            return anterior;
         }
+        return OptimizedFibonacci(n-1, valor+anterior, valor); // La suma se va contabilizando en el tercer parámetro y ese es el que se retorna al final
     }
 }

@@ -14,7 +14,6 @@ public abstract class Mamifero extends AnimalVertebrado{
         this.raza = raza;
     }
 
-
     @Override
     public boolean tienePatas(){
         return true;
